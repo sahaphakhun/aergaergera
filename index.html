@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>วายเคเอ็น ออโตโมทีฟ - เคาะพ่นสีตัวถังรถยนต์</title>
+    <meta name="description" content="รับจ้างเคาะพ่นสีตัวถังรถยนต์ สำหรับยานพาหนะทุกชนิด บริการคุณภาพสูง ราคาเป็นธรรม">
+    <meta name="keywords" content="เคาะพ่นสี, ซ่อมรถ, บำรุงรักษารถ, วายเคเอ็น, ออโตโมทีฟ">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="วายเคเอ็น ออโตโมทีฟ - เคาะพ่นสีตัวถังรถยนต์">
+    <meta property="og:description" content="รับจ้างเคาะพ่นสีตัวถังรถยนต์ สำหรับยานพาหนะทุกชนิด บริการคุณภาพสูง ราคาเป็นธรรม">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Kanit', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .contact-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .company-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .info-item i {
+            color: #ff6b6b;
+            margin-right: 1rem;
+            width: 20px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item i {
+            color: #ff6b6b;
+            margin-right: 1rem;
+            width: 20px;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .service-card,
+            .company-info,
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">วายเคเอ็น ออโตโมทีฟ</div>
+                <a href="tel:0812345678" class="contact-btn">
+                    <i class="fas fa-phone"></i> โทรเลย
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="fade-in-up">บริการเคาะพ่นสีตัวถังรถยนต์</h1>
+            <p class="fade-in-up">รับจ้างเคาะพ่นสีตัวถังรถยนต์ สำหรับยานพาหนะทุกชนิด บริการคุณภาพสูง ราคาเป็นธรรม</p>
+            <div class="cta-buttons fade-in-up">
+                <a href="tel:0812345678" class="btn-primary">
+                    <i class="fas fa-phone"></i> โทรสอบถามราคา
+                </a>
+                <a href="#services" class="btn-secondary">
+                    <i class="fas fa-info-circle"></i> ดูบริการ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">บริการของเรา</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>เคาะตัวถังรถยนต์</h3>
+                    <p>บริการเคาะตัวถังรถยนต์ด้วยเครื่องมือทันสมัย ช่างผู้เชี่ยวชาญประสบการณ์สูง</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>พ่นสีรถยนต์</h3>
+                    <p>พ่นสีรถยนต์ด้วยสีคุณภาพสูง เทคนิคการพ่นสีที่ทันสมัย ให้สีสวยงามทนทาน</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>ซ่อมแซมตัวถัง</h3>
+                    <p>ซ่อมแซมตัวถังรถยนต์ทุกประเภท ประตู หน้าต่าง และส่วนประกอบอื่นๆ</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>บำรุงรักษา</h3>
+                    <p>บริการบำรุงรักษาตัวถังรถยนต์ ป้องกันสนิม และดูแลความสวยงาม</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>เกี่ยวกับบริษัท</h2>
+                    <p>บริษัท วายเคเอ็น ออโตโมทีฟ จำกัด เป็นบริษัทที่เชี่ยวชาญในการรับจ้างเคาะพ่นสีตัวถังรถยนต์ สำหรับยานพาหนะทุกชนิด</p>
+                    <p>เรามีประสบการณ์และความเชี่ยวชาญในการให้บริการซ่อมแซมและบำรุงรักษาตัวถังรถยนต์ ด้วยทีมช่างผู้เชี่ยวชาญและอุปกรณ์ที่ทันสมัย</p>
+                    <p>มุ่งมั่นให้บริการคุณภาพสูง ราคาเป็นธรรม และความพึงพอใจสูงสุดแก่ลูกค้า</p>
+                </div>
+                <div class="company-info">
+                    <h3>ข้อมูลบริษัท</h3>
+                    <div class="info-item">
+                        <i class="fas fa-building"></i>
+                        <span>บริษัท วายเคเอ็น ออโตโมทีฟ จำกัด</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-id-card"></i>
+                        <span>ทะเบียน: 0105567088328</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>จดทะเบียน: 29 เมษายน 2567</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-coins"></i>
+                        <span>ทุนจดทะเบียน: 1,000,000 บาท</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>25/346 ซอยรามคำแหง 124 แขวงสะพานสูง เขตสะพานสูง กรุงเทพมหานคร</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>ติดต่อเรา</h2>
+                    <p>พร้อมให้บริการเคาะพ่นสีตัวถังรถยนต์ทุกประเภท</p>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>โทร: 081-234-5678</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>อีเมล: info@yknautomotive.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>25/346 ซอยรามคำแหง 124 แขวงสะพานสูง เขตสะพานสูง กรุงเทพมหานคร</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>เปิดบริการ: จันทร์-เสาร์ 08:00-18:00</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>สอบถามราคา</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">ชื่อ-นามสกุล</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">เบอร์โทรศัพท์</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="carType">ประเภทรถ</label>
+                            <input type="text" id="carType" name="carType" placeholder="เช่น รถเก๋ง, รถกระบะ">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">รายละเอียดงาน</label>
+                            <textarea id="message" name="message" placeholder="บอกเราว่าต้องการบริการอะไร"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">ส่งข้อความ</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 บริษัท วายเคเอ็น ออโตโมทีฟ จำกัด. สงวนลิขสิทธิ์.</p>
+            <p>บริการเคาะพ่นสีตัวถังรถยนต์ สำหรับยานพาหนะทุกชนิด</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const phone = formData.get('phone');
+            const carType = formData.get('carType');
+            const message = formData.get('message');
+            
+            // Create WhatsApp message
+            const whatsappMessage = `สวัสดีครับ ผม ${name} ต้องการสอบถามราคาบริการเคาะพ่นสีตัวถังรถยนต์
+
+เบอร์โทร: ${phone}
+ประเภทรถ: ${carType}
+รายละเอียดงาน: ${message}
+
+กรุณาติดต่อกลับครับ ขอบคุณครับ`;
+            
+            // Open WhatsApp
+            const whatsappUrl = `https://wa.me/66812345678?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Show success message
+            alert('กำลังเปิด WhatsApp เพื่อส่งข้อความ กรุณาส่งข้อความให้เรา');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Phone number click tracking for Google Ads
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', function() {
+                // Track phone clicks for Google Ads conversion
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'phone_call', {
+                        'event_category': 'engagement',
+                        'event_label': 'header_phone'
+                    });
+                }
+            });
+        });
+
+        // CTA button click tracking
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'cta_click', {
+                        'event_category': 'engagement',
+                        'event_label': 'hero_cta'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- Google Analytics / Google Ads Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</body>
+</html>
