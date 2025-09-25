@@ -268,6 +268,123 @@
             width: 20px;
         }
         
+        /* Why Choose Us Section */
+        .why-choose-us {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .why-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .why-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .why-icon {
+            font-size: 3rem;
+            color: #00c300;
+            margin-bottom: 1rem;
+        }
+        
+        .why-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .why-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Customer Reviews Section */
+        .customer-reviews {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .review-stars {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .review-text {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info span {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
         /* Contact Section */
         .contact {
             padding: 80px 0;
@@ -462,7 +579,12 @@
                 gap: 2rem;
             }
             
-            .services-grid {
+            .services-grid,
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .reviews-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -504,11 +626,21 @@
                 padding: 60px 0;
             }
             
+            .why-choose-us {
+                padding: 60px 0;
+            }
+            
+            .customer-reviews {
+                padding: 60px 0;
+            }
+            
             .contact {
                 padding: 60px 0;
             }
             
             .service-card,
+            .why-card,
+            .review-card,
             .company-info,
             .contact-form {
                 padding: 1.5rem;
@@ -640,6 +772,123 @@
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>25/346 ซอยรามคำแหง 124 แขวงสะพานสูง เขตสะพานสูง กรุงเทพมหานคร</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2 class="section-title">ทำไมต้องเลือกเรา</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>คุณภาพสูง</h3>
+                    <p>ใช้สีคุณภาพสูงและเทคนิคการพ่นสีที่ทันสมัย ให้สีสวยงามทนทาน</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>ช่างผู้เชี่ยวชาญ</h3>
+                    <p>ทีมช่างมีประสบการณ์สูง ทำงานอย่างประณีตและใส่ใจในรายละเอียด</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>ราคาเป็นธรรม</h3>
+                    <p>ราคาคุ้มค่า ไม่มีค่าใช้จ่ายแอบแฝง โปร่งใสทุกขั้นตอน</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>ส่งมอบตรงเวลา</h3>
+                    <p>ทำงานตามกำหนดเวลา ส่งมอบงานตรงตามที่ตกลงกัน</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>รับประกันงาน</h3>
+                    <p>รับประกันคุณภาพงาน มีการดูแลหลังการขาย</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>บริการเป็นกันเอง</h3>
+                    <p>พนักงานบริการดี เป็นกันเอง ให้คำปรึกษาอย่างเป็นมิตร</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="customer-reviews">
+        <div class="container">
+            <h2 class="section-title">รีวิวจากลูกค้า</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"บริการดีมากครับ รถสวยและสะอาดมาก ช่างทำงานประณีต ราคาก็คุ้มค่า จะมาใช้บริการอีกแน่นอน"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>คุณสมชาย</h4>
+                            <span>เจ้าของรถ Toyota Camry</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"พนักงานเป็นกันเองมาก ให้คำปรึกษาดี งานออกมาสวยเกินคาด ส่งมอบตรงเวลา ต้องยกนิ้วให้เลย"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>คุณมานี</h4>
+                            <span>เจ้าของรถ Honda Civic</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"ราคาไม่แพงเลย เมื่อเทียบกับคุณภาพที่ได้ งานออกมาดีมาก สีสวยทนทาน แนะนำเลยครับ"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>คุณวิชัย</h4>
+                            <span>เจ้าของรถ Nissan Almera</span>
+                        </div>
                     </div>
                 </div>
             </div>
