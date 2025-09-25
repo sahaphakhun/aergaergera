@@ -61,6 +61,12 @@
             align-items: center;
         }
         
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
@@ -83,6 +89,24 @@
         .contact-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .line-btn {
+            background: linear-gradient(45deg, #00c300, #00a000);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .line-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 195, 0, 0.4);
         }
         
         /* Hero Section */
@@ -333,30 +357,59 @@
             padding: 2rem 0;
         }
         
-        /* Floating Call Button for Mobile */
-        .floating-call-btn {
+        /* Floating Buttons for Mobile */
+        .floating-buttons {
             position: fixed;
             bottom: 20px;
             right: 20px;
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+        
+        .floating-call-btn {
             background: linear-gradient(45deg, #ff6b6b, #ee5a24);
             color: white;
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            display: none;
+            display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
             text-decoration: none;
             box-shadow: 0 4px 20px rgba(255, 107, 107, 0.4);
-            z-index: 1000;
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
         }
         
-        .floating-call-btn:hover {
+        .floating-line-btn {
+            background: linear-gradient(45deg, #00c300, #00a000);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(0, 195, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .floating-call-btn:hover,
+        .floating-line-btn:hover {
             transform: scale(1.1);
+        }
+        
+        .floating-call-btn:hover {
             box-shadow: 0 6px 25px rgba(255, 107, 107, 0.6);
+        }
+        
+        .floating-line-btn:hover {
+            box-shadow: 0 6px 25px rgba(0, 195, 0, 0.6);
         }
         
         @keyframes pulse {
@@ -413,8 +466,8 @@
                 grid-template-columns: 1fr;
             }
             
-            /* Show floating call button on mobile */
-            .floating-call-btn {
+            /* Show floating buttons on mobile */
+            .floating-buttons {
                 display: flex;
             }
         }
@@ -461,11 +514,16 @@
                 padding: 1.5rem;
             }
             
-            .floating-call-btn {
-                width: 55px;
-                height: 55px;
+            .floating-buttons {
                 bottom: 15px;
                 right: 15px;
+                gap: 12px;
+            }
+            
+            .floating-call-btn,
+            .floating-line-btn {
+                width: 55px;
+                height: 55px;
                 font-size: 1.3rem;
             }
         }
@@ -498,9 +556,14 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">วายเคเอ็น ออโตโมทีฟ</div>
-                <a href="tel:0812345678" class="contact-btn">
-                    <i class="fas fa-phone"></i> โทรเลย
-                </a>
+                <div class="header-buttons">
+                    <a href="https://line.me/ti/p/~yknautomotive" class="line-btn" target="_blank">
+                        <i class="fab fa-line"></i> ไลน์
+                    </a>
+                    <a href="tel:0812345678" class="contact-btn">
+                        <i class="fas fa-phone"></i> โทรเลย
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -653,10 +716,15 @@
         </div>
     </footer>
 
-    <!-- Floating Call Button for Mobile -->
-    <a href="tel:0812345678" class="floating-call-btn" id="floatingCallBtn">
-        <i class="fas fa-phone"></i>
-    </a>
+    <!-- Floating Buttons for Mobile -->
+    <div class="floating-buttons">
+        <a href="https://line.me/ti/p/~yknautomotive" class="floating-line-btn" target="_blank" id="floatingLineBtn">
+            <i class="fab fa-line"></i>
+        </a>
+        <a href="tel:0812345678" class="floating-call-btn" id="floatingCallBtn">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
 
     <script>
         // Smooth scrolling for anchor links
@@ -730,6 +798,19 @@
                     gtag('event', 'phone_call', {
                         'event_category': 'engagement',
                         'event_label': this.id === 'floatingCallBtn' ? 'floating_call_button' : 'header_phone'
+                    });
+                }
+            });
+        });
+
+        // Line button click tracking for Google Ads
+        document.querySelectorAll('a[href*="line.me"]').forEach(link => {
+            link.addEventListener('click', function() {
+                // Track Line clicks for Google Ads conversion
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'line_click', {
+                        'event_category': 'engagement',
+                        'event_label': this.id === 'floatingLineBtn' ? 'floating_line_button' : 'header_line'
                     });
                 }
             });
