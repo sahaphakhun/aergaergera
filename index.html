@@ -262,19 +262,33 @@
             padding: 120px 0 80px;
             text-align: center;
             color: white;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/hero-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 2;
         }
         
         .hero h1 {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
         }
         
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            opacity: 0.95;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
         }
         
         .cta-buttons {
@@ -698,8 +712,10 @@
             
             /* Adjust hero section for mobile without header */
             .hero {
-                padding: 40px 0 60px;
+                padding: 60px 0 40px;
                 margin-top: 0;
+                min-height: 80vh;
+                background-attachment: scroll;
             }
             
             .hero h1 {
@@ -748,7 +764,8 @@
             }
             
             .hero {
-                padding: 30px 0 50px;
+                padding: 40px 0 30px;
+                min-height: 70vh;
             }
             
             .hero h1 {
