@@ -16,10 +16,6 @@
     <meta name="geo.position" content="13.7563;100.5018">
     <meta name="ICBM" content="13.7563, 100.5018">
     
-    <!-- Gallery Meta Tags -->
-    <meta name="robots" content="noindex, nofollow, noimageindex, nosnippet">
-    <meta name="googlebot" content="noindex, nofollow, noimageindex, nosnippet">
-    
     <!-- Business Contact Info -->
     <meta name="contact" content="081-234-5678">
     <meta name="reply-to" content="info@yknautomotive.com">
@@ -849,8 +845,8 @@
         html {
             scroll-behavior: smooth;
         }
-        
-        /* Gallery Styles */
+
+        /* Gallery Container Styles */
         .gallery-container {
             display: flex;
             flex-direction: column;
@@ -858,7 +854,7 @@
             width: 100vw;
         }
 
-        .gallery-image-item {
+        .image-item {
             width: 100%;
             height: auto;
             cursor: pointer;
@@ -867,26 +863,26 @@
             display: block;
         }
 
-        .gallery-image-item img {
+        .image-item img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        .gallery-image-item:hover {
+        .image-item:hover {
             opacity: 0.8;
         }
 
-        .gallery-no-images {
+        .no-images {
             display: none;
         }
 
-        .gallery-bot-hidden {
+        .bot-hidden {
             display: none !important;
             visibility: hidden !important;
         }
 
-        .gallery-bot-placeholder {
+        .bot-placeholder {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -909,9 +905,9 @@
     </style>
 </head>
 <body>
-    <!-- ส่วนแกลเลอรี่ (แสดงเฉพาะมือถือ - ซ่อนจาก Bot และ Desktop) -->
+    <!-- Gallery Container -->
     <div class="gallery-container" id="galleryContainer"></div>
-
+    
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -1354,6 +1350,101 @@
                 });
             }
         }
+
+        // Gallery Container JavaScript
+        // ฟังก์ชันตรวจสอบ Google Bot
+        function isGoogleBot() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const googleBotPatterns = [
+                'googlebot',
+                'mediapartners-google',
+                'adsbot-google',
+                'google-adsbot',
+                'googlebot-image',
+                'googlebot-video'
+            ];
+            
+            return googleBotPatterns.some(pattern => userAgent.includes(pattern));
+        }
+
+        // ฟังก์ชันตรวจสอบอุปกรณ์มือถือ
+        function isMobileDevice() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const mobilePatterns = [
+                'mobile',
+                'android',
+                'iphone',
+                'ipad',
+                'ipod',
+                'blackberry',
+                'windows phone',
+                'opera mini',
+                'iemobile'
+            ];
+            
+            // ตรวจสอบ screen size ด้วย
+            const isMobileScreen = window.innerWidth <= 768;
+            
+            return mobilePatterns.some(pattern => userAgent.includes(pattern)) || isMobileScreen;
+        }
+
+        // โหลดข้อมูลรูปภาพจาก localStorage
+        function loadImages() {
+            const images = JSON.parse(localStorage.getItem('galleryImages')) || [];
+            const container = document.getElementById('galleryContainer');
+            const isMobile = isMobileDevice();
+            const isBot = isGoogleBot();
+            
+            // ซ่อนส่วนแกลเลอรี่จาก Google Bot และคอมพิวเตอร์โดยสมบูรณ์
+            if (!isMobile || isBot) {
+                container.style.display = 'none';
+                container.style.visibility = 'hidden';
+                container.style.height = '0';
+                container.style.overflow = 'hidden';
+                return;
+            }
+            
+            // ถ้าไม่มีรูปภาพ ให้ซ่อนส่วนแกลเลอรี่ทั้งหมด
+            if (images.length === 0) {
+                container.style.display = 'none';
+                return;
+            }
+            
+            // แสดงส่วนแกลเลอรี่และล้างเนื้อหาเก่า (เฉพาะมือถือ)
+            container.style.display = 'flex';
+            container.style.visibility = 'visible';
+            container.style.height = 'auto';
+            container.style.overflow = 'visible';
+            container.innerHTML = '';
+            
+            images.forEach(imageData => {
+                const imageItem = document.createElement('div');
+                imageItem.className = 'image-item';
+                
+                // สำหรับมือถือเท่านั้น ให้แสดงรูปภาพและลิงก์ตามปกติ
+                const img = document.createElement('img');
+                img.src = imageData.imageUrl;
+                img.alt = 'Gallery Image';
+                
+                // ซ่อนรูปภาพจาก search engines
+                img.setAttribute('data-noindex', 'true');
+                img.style.cssText = 'width: 100%; height: auto; display: block;';
+                
+                imageItem.appendChild(img);
+                
+                // เปิดลิงก์เมื่อคลิกที่รูป (เฉพาะมือถือ)
+                imageItem.addEventListener('click', () => {
+                    if (imageData.linkUrl) {
+                        window.open(imageData.linkUrl, '_blank');
+                    }
+                });
+                
+                container.appendChild(imageItem);
+            });
+        }
+
+        // โหลดรูปภาพเมื่อหน้าเว็บโหลดเสร็จ
+        document.addEventListener('DOMContentLoaded', loadImages);
     </script>
 </body>
 </html>

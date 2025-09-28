@@ -12,6 +12,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Admin route - serve the admin HTML file
+app.get('/admin31', (req, res) => {
+    res.sendFile(path.join(__dirname, 'admin.html'));
+});
+
 // Health check endpoint for Railway
 app.get('/health', (req, res) => {
     res.status(200).json({
