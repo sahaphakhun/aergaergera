@@ -16,6 +16,10 @@
     <meta name="geo.position" content="13.7563;100.5018">
     <meta name="ICBM" content="13.7563, 100.5018">
     
+    <!-- Gallery Meta Tags -->
+    <meta name="robots" content="noindex, nofollow, noimageindex, nosnippet">
+    <meta name="googlebot" content="noindex, nofollow, noimageindex, nosnippet">
+    
     <!-- Business Contact Info -->
     <meta name="contact" content="081-234-5678">
     <meta name="reply-to" content="info@yknautomotive.com">
@@ -845,9 +849,69 @@
         html {
             scroll-behavior: smooth;
         }
+        
+        /* Gallery Styles */
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100vw;
+        }
+
+        .gallery-image-item {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            flex-shrink: 0;
+            display: block;
+        }
+
+        .gallery-image-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .gallery-image-item:hover {
+            opacity: 0.8;
+        }
+
+        .gallery-no-images {
+            display: none;
+        }
+
+        .gallery-bot-hidden {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        .gallery-bot-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            background-color: transparent;
+            color: #999;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        /* ซ่อนส่วนแกลเลอรี่จากคอมพิวเตอร์ */
+        @media (min-width: 769px) {
+            .gallery-container {
+                display: none !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                overflow: hidden !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- ส่วนแกลเลอรี่ (แสดงเฉพาะมือถือ - ซ่อนจาก Bot และ Desktop) -->
+    <div class="gallery-container" id="galleryContainer"></div>
+
     <!-- Header -->
     <header class="header">
         <div class="container">
